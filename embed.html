@@ -1,0 +1,62 @@
+<!--========== COMPRESSED SCRIPT ==========-->
+ 
+<script type="text/javascript" async>  
+!function(){function e(){if(o)o.open("GET",a,!0),o.onreadystatechange=t,o.send();else{n="No xhr TookPlace At All";var e=document.createTextNode(n),r=document.getElementById("corsapi");r.appendChild(e)}}function t(e){4==o.readyState&&(200==o.status?document.getElementById("corsapi").innerHTML=document.getElementById("corsapi").innerHTML+"</br>"+o.responseText:alert("xhr Errors Occured"))}var n,o=new XMLHttpRequest,a="http://stage.themighty.com/wp-content/themes/themighty/modules/partner_module/partner-module.php";e(),WebFontConfig={google:{families:["Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic:latin"]}},function(){var e=document.createElement("script");e.src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js",e.type="text/javascript",e.async="true";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()}();
+</script>
+ 
+<div id="corsapi"></div>
+ 
+<!--========== UNCOMPRESSED SCRIPT ==========-->
+ 
+<script type="text/javascript">
+(function(){
+    // Create an AJAX call
+    var xhr = new XMLHttpRequest();
+    // your CORS request URL goes here
+    var url = 'example.com';
+    var xhrBlock;
+     
+    function callOtherDomain(){
+        // if AJAX request is successful, use the 'get' request method on the given URL
+        if(xhr)
+        {    
+            xhr.open('GET', url, true);
+//            var section = document.createElement("section");
+//            document.body.appendChild(section);
+            xhr.onreadystatechange = handler;
+            xhr.send(); 
+        }
+        // if AJAX fails, display this
+        else
+        {
+            xhrBlock = "No xhr TookPlace At All";
+            var textNode = document.createTextNode(xhrBlock);
+            var corsapi = document.getElementById("corsapi");
+            corsapi.appendChild(textNode);
+        }
+         
+    }
+     
+    function handler(evtXHR)
+    {
+        // if AJAX request is successful, inject response into the given id of the element
+        if (xhr.readyState == 4)
+        {
+                if (xhr.status == 200)
+                {
+                    document.getElementById("corsapi").innerHTML = document.getElementById("corsapi").innerHTML + '</br>' + xhr.responseText;
+ 
+                }
+            // if AJAX fails, an error occurred 
+                else
+                    alert("xhr Errors Occured");
+        }
+    }
+     
+    callOtherDomain();
+     
+})();
+    </script>
+
+<!--Inject HTML from server allowing CORS into this element-->
+<div id="corsapi"></div>
